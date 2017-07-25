@@ -57,7 +57,7 @@ class WeeklyCalendar extends Component {
 
         curentWeekDay = new Date(curentWeekDay.getFullYear(), curentWeekDay.getMonth(),
             curentWeekDay.getDate() - 7);
-        
+
         this.setState({currentDay: curentWeekDay});
     }
 
@@ -81,6 +81,18 @@ class WeeklyCalendar extends Component {
         return curentWeekDay;
     }
 
+    getAdjacentMonths(firstWeekDay, lastWeekDay){
+        let months = [];
+        months[0] = firstWeekDay.getMonth();
+
+        if(firstWeekDay.getMonth() !== lastWeekDay.getMonth()){
+            months[1] = lastWeekDay.getMonth();
+            return months;
+        }
+
+        return months;
+    }
+
     render(){
         let weekDay;
 
@@ -90,13 +102,22 @@ class WeeklyCalendar extends Component {
             weekDay = this.state.currentDay;
         }
 
+        let week = this.weekCalendar(weekDay);
+        let adjacentMonth = this.getAdjacentMonths(week[0], week[4]);
+        let month;
+        if(adjacentMonth.length === 2){
+            month = <div id='month'>{MONTH[week[0].getMonth()]} / {MONTH[week[4].getMonth()]}</div>;
+        }else {
+            month = <div id='month'>{MONTH[weekDay.getMonth()]}</div>;
+        }
+
         return (
             <div>
-                <div id="month">{MONTH[weekDay.getMonth()]}</div>
+                {month}
                 <button onClick={this.getPreviousWeek.bind(this)}><img src={arrow_LEFT} alt="Prev"/></button>
                 <ul>
                     {
-                        this.weekCalendar(weekDay).map(function(day, i){
+                        week.map(function(day, i){
                             return <li key={i}>{WEEK_DAYS[i + 1]} {day.getDate().toString()}</li>
                         })
                     }
