@@ -4,12 +4,32 @@
 import React, { Component } from 'react';
 import arrow_LEFT from "../arrow_LEFT.png";
 import arrow_right from "../arrow_right.png";
-import ROOMS from "../meetingRooms.js";
-import TIME_PERIODS from "../timePeriods.js";
+import '../App.css';
 
 const MONTH = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август",
     "Сентябрь", "Октябрь","Ноябрь", "Декабрь"];
 const WEEK_DAYS = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];
+
+const ROOMS = [
+    {name: "Желтая", id:  0},
+    {name: "Красная", id:  1},
+    {name: "Зеленая", id:  2},
+    {name: "Синяя", id:  3},
+    {name: "Фиолетовая", id:  4},
+];
+
+const TIME_PERIODS = [
+    {time: "9:00", id:  0},
+    {time: "10:00", id:  1},
+    {time: "11:00", id:  2},
+    {time: "12:00", id:  3},
+    {time: "13:00", id:  4},
+    {time: "14:00", id:  5},
+    {time: "15:00", id:  6},
+    {time: "16:00", id:  7},
+    {time: "17:00", id:  8},
+    {time: "18:00", id:  9},
+];
 
 class WeeklyCalendar extends Component {
     constructor(){
@@ -113,10 +133,22 @@ class WeeklyCalendar extends Component {
             month = <div id='month'>{MONTH[weekDay.getMonth()]}</div>;
         }
 
+        let bookingTime = [];
+        let tmp;
+        for(let i = 0; i < ROOMS.length; i++){
+            tmp = [];
+            for (let j = 0; j < week.length; j++){
+                for(let k = 0; k < TIME_PERIODS.length; k++){
+                    tmp.push(<Cell key={week[j].toString().concat(k)} className="timePeriod">{TIME_PERIODS[k].time}</Cell>);
+                }
+            }
+            bookingTime[i] = <Cell><Cell className="roomName">{ROOMS[i].name}</Cell><Cell className="bookingTime">{tmp}</Cell></Cell>;
+        }
+
         return (
             <div>
                 <Row className="calendar-header">
-                    <Cell className="rooms-header">Rooms</Cell>
+                    <Cell className="rooms-header">Комната</Cell>
                     <Cell className="month-header">
                         <Row>
                             <Cell className="left-button">
@@ -138,9 +170,13 @@ class WeeklyCalendar extends Component {
                         </Row>
                     </Cell>
                 </Row>
+                <Row className="booking">
                 {
-
+                    bookingTime.map(function(item, i){
+                        return <Row className="roomWeek" key={i}>{item}</Row>
+                    })
                 }
+                </Row>
 
             </div>
         );

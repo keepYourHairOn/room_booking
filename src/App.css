@@ -1,24 +1,78 @@
-.App {
-  text-align: center;
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,
+pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,
+samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,
+legend,table,caption,tbody,tfoot,thead,tr,th,td {
+  border:0;
+  outline:0;
+  vertical-align:middle;
+  background:transparent;
+  margin:0;
+  padding:0;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+* {
+  margin:0;
+  padding:0;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+}
+
+/* Easy way for me to float items */
+
+.floatleft {
+    float:left;
+}
+
+.floatright {
+    float:right;
+}
+
+.floatmiddle {
+    margin: 0px auto;
+}
+
+.App {
+  background-color: white;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+  text-align: left;
+  height: 117px;
+  padding: 45px;
+  color: #666666;
 }
 
-.App-intro {
-  font-size: large;
+.App-header > div{
+    font-weight: bold;
+    font-size: 40px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.row {
+    width: 100%;
+    height: inherit;
+}
+
+.calendar-header {
+    float: left;
+    padding-left: 45px;
+}
+
+.calendar-header .cell {
+    float: left;
+}
+
+.booking {
+    padding-left: 45px;
+}
+
+.roomWeek > .cell{
+    float: left;
+    width: 100%;
+}
+
+.roomWeek > .cell > .cell{
+    float: left;
 }
