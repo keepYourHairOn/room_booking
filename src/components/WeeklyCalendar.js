@@ -115,19 +115,49 @@ class WeeklyCalendar extends Component {
 
         return (
             <div>
-                {month}
-                <button onClick={this.getPreviousWeek.bind(this)}><img src={arrow_LEFT} alt="Prev"/></button>
-                <ul>
-                    {
-                        week.map(function(day, i){
-                            return <li key={i}>{WEEK_DAYS[i + 1]} {day.getDate().toString()}</li>
-                        })
-                    }
-                </ul>
-                <button onClick={this.getNextWeek.bind(this)}><img src={arrow_right} alt="Next"/> </button>
+                <Row className="calendar-header">
+                    <Cell className="rooms-header">Rooms</Cell>
+                    <Cell className="month-header">
+                        <Row>
+                            <Cell className="left-button">
+                                <button onClick={this.getPreviousWeek.bind(this)}><img src={arrow_LEFT} alt="Prev"/></button>
+                            </Cell>
+                            <Cell className="month-name">{month}</Cell>
+                            <Cell className="right-button">
+                                <button onClick={this.getNextWeek.bind(this)}><img src={arrow_right} alt="Next"/> </button>
+                            </Cell>
+                        </Row>
+                        <Row>
+                            <Cell className="week-days">
+                                {
+                                    week.map(function(day, i){
+                                        return <Cell className="day" key={i}>{WEEK_DAYS[i + 1]} {day.getDate().toString()}</Cell>
+                                    })
+                                }
+                            </Cell>
+                        </Row>
+                    </Cell>
+                </Row>
+                {
+
+                }
+
             </div>
         );
     }
 }
+
+const Row = (props) => (
+    <div {...props}
+         className={['row', props.className].join(' ')}
+    />
+);
+
+const Cell = (props) => (
+    <div {...props}
+         className={['cell', props.className].join(' ')}
+    />
+);
+
 
 export default WeeklyCalendar;
