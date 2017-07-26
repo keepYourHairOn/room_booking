@@ -4,6 +4,8 @@
 import React, { Component } from 'react';
 import arrow_LEFT from "../arrow_LEFT.png";
 import arrow_right from "../arrow_right.png";
+import ROOMS from "../meetingRooms.js";
+import TIME_PERIODS from "../timePeriods.js";
 
 const MONTH = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август",
     "Сентябрь", "Октябрь","Ноябрь", "Декабрь"];
