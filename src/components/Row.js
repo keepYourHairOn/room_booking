@@ -3,14 +3,14 @@
  */
 import React, { Component } from 'react';
 
-class Cell extends Component {
-    render() {
+class Row extends Component {
+    render(){
         return(
             <div {this.props}
-                 className={classNames('cell', this.props.className)}
+                 className={classNames('row', this.props.className)}
             />
         );
     }
 }
 
-export default Cell;
+export default Row;
