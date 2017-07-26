@@ -28,11 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WeeklyCalendar.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WeeklyCalendar.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/WeeklyCalendar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="139" column="50" lean-forward="true" selection-start-line="139" selection-start-column="50" selection-end-line="139" selection-end-column="50" />
+            <state relative-caret-position="313">
+              <caret line="168" column="118" lean-forward="true" selection-start-line="168" selection-start-column="118" selection-end-line="168" selection-end-column="118" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#56#97#0" expanded="true" />
@@ -41,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="App.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="72" column="16" lean-forward="false" selection-start-line="72" selection-start-column="16" selection-end-line="72" selection-end-column="16" />
+            <state relative-caret-position="343">
+              <caret line="158" column="17" lean-forward="false" selection-start-line="158" selection-start-column="17" selection-end-line="158" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -65,6 +65,9 @@
       <find>today</find>
       <find>first_day</find>
       <find>setState</find>
+      <find>padding-left</find>
+      <find>bookingWeek</find>
+      <find>bookingDay</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -81,8 +84,8 @@
         <option value="$PROJECT_DIR$/src/meetingRooms.js" />
         <option value="$PROJECT_DIR$/src/timePeriods.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/App.css" />
         <option value="$PROJECT_DIR$/src/components/WeeklyCalendar.js" />
+        <option value="$PROJECT_DIR$/src/App.css" />
       </list>
     </option>
   </component>
@@ -262,12 +265,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1500964955077</updated>
-      <workItem from="1500964956722" duration="37256000" />
+      <workItem from="1500964956722" duration="42410000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37256000" />
+    <option name="totallyTimeSpent" value="42410000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -411,6 +414,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/WeeklyCalendar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="168" column="118" lean-forward="true" selection-start-line="168" selection-start-column="118" selection-end-line="168" selection-end-column="118" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#56#97#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -421,20 +435,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="72" column="16" lean-forward="false" selection-start-line="72" selection-start-column="16" selection-end-line="72" selection-end-column="16" />
+        <state relative-caret-position="343">
+          <caret line="158" column="17" lean-forward="false" selection-start-line="158" selection-start-column="17" selection-end-line="158" selection-end-column="17" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/WeeklyCalendar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="139" column="50" lean-forward="true" selection-start-line="139" selection-start-column="50" selection-end-line="139" selection-end-column="50" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#56#97#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

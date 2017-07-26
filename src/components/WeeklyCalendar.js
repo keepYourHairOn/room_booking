@@ -135,14 +135,17 @@ class WeeklyCalendar extends Component {
 
         let bookingTime = [];
         let tmp;
+        let day;
         for(let i = 0; i < ROOMS.length; i++){
             tmp = [];
             for (let j = 0; j < week.length; j++){
+                day = [];
                 for(let k = 0; k < TIME_PERIODS.length; k++){
-                    tmp.push(<Cell key={week[j].toString().concat(k)} className="timePeriod">{TIME_PERIODS[k].time}</Cell>);
+                    day.push(<Cell key={week[j].toString().concat(k)} className="timePeriod">{TIME_PERIODS[k].time}</Cell>);
                 }
+                tmp.push(<Cell className="bookingDay">{day}</Cell>);
             }
-            bookingTime[i] = <Cell><Cell className="roomName">{ROOMS[i].name}</Cell><Cell className="bookingTime">{tmp}</Cell></Cell>;
+            bookingTime[i] = <Cell><Cell className="roomName">{ROOMS[i].name}</Cell><Cell className="bookingWeek">{tmp}</Cell></Cell>;
         }
 
         return (
@@ -163,7 +166,7 @@ class WeeklyCalendar extends Component {
                             <Cell className="week-days">
                                 {
                                     week.map(function(day, i){
-                                        return <Cell className="day" key={i}>{WEEK_DAYS[i + 1]} {day.getDate().toString()}</Cell>
+                                        return <Cell className="day" key={i}> {day.getDate().toString()} {WEEK_DAYS[i + 1]}</Cell>
                                     })
                                 }
                             </Cell>
