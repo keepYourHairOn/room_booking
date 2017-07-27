@@ -4,6 +4,7 @@
 import React, { Component } from 'react';
 import arrow_LEFT from "../arrow_LEFT.png";
 import arrow_right from "../arrow_right.png";
+import plus_sign_icon from "../plus_sign_icon.png";
 import '../App.css';
 
 const MONTH = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август",
@@ -141,7 +142,10 @@ class WeeklyCalendar extends Component {
             for (let j = 0; j < week.length; j++){
                 day = [];
                 for(let k = 0; k < TIME_PERIODS.length; k++){
-                    day.push(<Cell key={week[j].toString().concat(k)} className="timePeriod">{TIME_PERIODS[k].time}</Cell>);
+                    day.push(<Cell key={week[j].toString().concat(k)} className="timePeriod">
+                        <span>{TIME_PERIODS[k].time}</span>
+                        <button className="bookingButton"><span className="plus">+</span></button>
+                    </Cell>);
                 }
                 tmp.push(<Cell className="bookingDay">{day}</Cell>);
             }

@@ -65,6 +65,20 @@ body{
     float: left;
 }
 
+.day {
+    width: 19%;
+    text-align: center;
+    height: 35px;
+}
+
+.day:nth-child(-n+4) {
+    margin-right: 0.77%;
+}
+
+.month-header .row .week-days .day:nth-last-child(1) {
+    float: right;
+}
+
 .week-days {
     width: 100%;
 }
@@ -96,18 +110,22 @@ body{
 }
 
 .bookingWeek .bookingDay:nth-child(-n+4) {
-    margin-right: 1%;
+    margin-right: 0.77%;
+}
+
+.bookingWeek .bookingDay:nth-last-child(1) {
+    float: right;
 }
 
 .bookingDay {
-    width: 18%;
+    width: 19%;
     height: 100%;
     column-count: 2;
-    column-gap: 20px;
     -moz-column-count: 2;
-    -moz-column-gap: 20px;
     -webkit-column-count: 2;
-    -webkit-column-gap: 20px;
+    -webkit-column-gap: 0px;
+    -moz-column-gap: 0px;
+    column-gap: 0px;
     border: 1px solid #ebebeb;
 }
 
@@ -131,7 +149,11 @@ body{
     width: 100%;
 }
 
-.month-header .row *{
+.month-header .row > *{
+    float: left;
+}
+
+.month-header .row .week-days *{
     float: left;
 }
 
@@ -150,17 +172,33 @@ body{
 }
 
 .left-button > button {
-    margin-left: 30%;
     height: 35px;
+    width: 100%
 }
 
-.right-button >button {
-    margin-right: 30%;
-    height: 35px;
+.left-button > button > img{
+    max-width: 100%;
+    float: left;
 }
 
-.day {
-    width: 19%;
-    text-align: center;
+.right-button > button {
     height: 35px;
+    width: 100%
+}
+
+.right-button > button > img {
+    max-width: 100%;
+    float: right;
+}
+
+.bookingButton {
+    width: 40%;
+    float: right;
+}
+
+.bookingButton .plus {
+    height: 100%;
+    width: 100%;
+    font-size: 20px;
+    font-family: Arial;
 }
