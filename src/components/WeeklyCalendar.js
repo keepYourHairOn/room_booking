@@ -183,7 +183,7 @@ class WeeklyCalendar extends Component {
                     let button;
                     let bookedClass = "";
 
-                    if(this.state.bookedTime == null || this.state.bookedTime.indexOf(dayKey) === -1){
+                    if((this.state.bookedTime == null || this.state.bookedTime.indexOf(dayKey) === -1) && week[j].getTime() >= this.state.todaysDay.getTime()){
                         button = <button className="bookingButton" onClick={this.onBooking.bind(this, dayKey)}><span className="plus">+</span></button>;
                     }else {
                         bookedClass = "bookedTime";
