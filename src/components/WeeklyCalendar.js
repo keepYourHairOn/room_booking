@@ -36,7 +36,12 @@ class WeeklyCalendar extends Component {
     constructor(){
         super();
         this.state = {todaysDay: new Date(),
-                        currentDay: ""};
+                        currentDay: "",
+                        bookedTime: this.getBookedTime()};
+    }
+
+    componentWillMount(){
+        this.getBookedTime();
     }
 
     weekCalendar(dayToCount) {
@@ -116,7 +121,34 @@ class WeeklyCalendar extends Component {
         return months;
     }
 
+    onBooking(dayKey) {
+        // add class to the item with hidden button for booking and change color of the time
+        // save date, room, time to the localStorage
+        if(!localStorage.getItem(dayKey)) {
+            localStorage.setItem(dayKey, dayKey);
+        }
+
+        this.getBookedTime();
+
+    }
+
+    getBookedTime(){
+        let localStorageKeys = [];
+        for ( var i = 0;  i < localStorage.length; i++ ) {
+            console.log( localStorage.getItem(localStorage.key(i)));
+            localStorageKeys.push(localStorage.getItem(localStorage.key(i)));
+        }
+
+        if (localStorageKeys.length > 0) {
+            this.setState({bookedTime: localStorageKeys});
+        }else {
+            this.setState({bookedTime: null});
+        }
+    }
+
     render(){
+        //localStorage.clear();
+
         let weekDay;
 
         if(this.state.currentDay === ""){
@@ -137,14 +169,28 @@ class WeeklyCalendar extends Component {
         let bookingTime = [];
         let tmp;
         let day;
+        let date;
         for(let i = 0; i < ROOMS.length; i++){
             tmp = [];
             for (let j = 0; j < week.length; j++){
                 day = [];
+                date = week[j].getFullYear().toString().concat(
+                    week[j].getMonth().toString()).concat(
+                        (week[j].getDate() + i).toString());
                 for(let k = 0; k < TIME_PERIODS.length; k++){
-                    day.push(<Cell key={week[j].toString().concat(k)} className="timePeriod">
+
+                    let dayKey = ROOMS[i].id.toString().concat(date.toString().concat(k));
+                    let button;
+                    let bookedClass = "";
+
+                    if(this.state.bookedTime == null || this.state.bookedTime.indexOf(dayKey) === -1){
+                        button = <button className="bookingButton" onClick={this.onBooking.bind(this, dayKey)}><span className="plus">+</span></button>;
+                    }else {
+                        bookedClass = "bookedTime";
+                    }
+                    day.push(<Cell key={dayKey} className={"timePeriod " + bookedClass}>
                         <span>{TIME_PERIODS[k].time}</span>
-                        <button className="bookingButton"><span className="plus">+</span></button>
+                        {button}
                     </Cell>);
                 }
                 tmp.push(<Cell className="bookingDay">{day}</Cell>);
