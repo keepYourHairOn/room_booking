@@ -42,6 +42,8 @@ class WeeklyCalendar extends Component {
 
     componentWillMount(){
         this.getBookedTime();
+        //TODO: remove
+        //this.setState({todaysDay: new Date()});
     }
 
     weekCalendar(dayToCount) {
@@ -122,6 +124,7 @@ class WeeklyCalendar extends Component {
     }
 
     onBooking(dayKey) {
+        //TODO: remove
         // add class to the item with hidden button for booking and change color of the time
         // save date, room, time to the localStorage
         if(!localStorage.getItem(dayKey)) {
@@ -146,8 +149,23 @@ class WeeklyCalendar extends Component {
         }
     }
 
+    checkTime(bookingTimeId){
+        let date = new Date();
+        let hours = date.getHours();
+
+        let index = -1;
+        if(hours >= 9 && hours <= 18){
+            if(bookingTimeId <= (TIME_PERIODS.length - (19 - hours))) {
+                return bookingTimeId;
+            }
+        }
+
+        return index;
+    }
+
     render(){
-        //localStorage.clear();
+        localStorage.clear();
+
 
         let weekDay;
 
@@ -170,6 +188,9 @@ class WeeklyCalendar extends Component {
         let tmp;
         let day;
         let date;
+        let isCorrectDate;
+        let date1;
+        let date2;
         for(let i = 0; i < ROOMS.length; i++){
             tmp = [];
             for (let j = 0; j < week.length; j++){
@@ -177,13 +198,31 @@ class WeeklyCalendar extends Component {
                 date = week[j].getFullYear().toString().concat(
                     week[j].getMonth().toString()).concat(
                         (week[j].getDate() + i).toString());
+                date1 = week[j];
+                date2 = this.state.todaysDay;
+                date1.setHours(0,0,0,0);
+                date2.setHours(0,0,0,0);
+                if(date1.getTime() >= date2.getTime()) {
+                    isCorrectDate = true;
+                    //TODO: remove
+                    //console.log(week[j].getTime().toString() + " " + this.state.todaysDay.getTime().toString() + " correct");
+                }else {
+                    isCorrectDate = false;
+                }
                 for(let k = 0; k < TIME_PERIODS.length; k++){
 
                     let dayKey = ROOMS[i].id.toString().concat(date.toString().concat(k));
                     let button;
                     let bookedClass = "";
 
-                    if((this.state.bookedTime == null || this.state.bookedTime.indexOf(dayKey) === -1) && week[j].getTime() >= this.state.todaysDay.getTime()){
+                    let expiredTime = -1;
+
+                    if(date1.getTime() === date2.getTime()){
+                        expiredTime = this.checkTime(k);
+                    }
+
+                    if((this.state.bookedTime == null || this.state.bookedTime.indexOf(dayKey) === -1) &&
+                        (isCorrectDate) && expiredTime === -1){
                         button = <button className="bookingButton" onClick={this.onBooking.bind(this, dayKey)}><span className="plus">+</span></button>;
                     }else {
                         bookedClass = "bookedTime";
