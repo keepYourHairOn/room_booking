@@ -20,7 +20,7 @@ const ROOMS = [
 ];
 
 const TIME_PERIODS = [
-    {time: "9:00", id:  0},
+    {time: "09:00", id:  0},
     {time: "10:00", id:  1},
     {time: "11:00", id:  2},
     {time: "12:00", id:  3},
@@ -35,6 +35,7 @@ const TIME_PERIODS = [
 class WeeklyCalendar extends Component {
     constructor(){
         super();
+
         this.state = {todaysDay: new Date(),
                         currentDay: "",
                         bookedTime: this.getBookedTime()};
@@ -42,12 +43,10 @@ class WeeklyCalendar extends Component {
 
     componentWillMount(){
         this.getBookedTime();
-        //TODO: remove
-        //this.setState({todaysDay: new Date()});
     }
 
     weekCalendar(dayToCount) {
-        let day = dayToCount;
+        let day = new Date(dayToCount.getTime());
         let year = day.getFullYear();
         let month = day.getMonth();
         // will be needed for the blocking of booking ability
@@ -56,6 +55,7 @@ class WeeklyCalendar extends Component {
         // day of the month - day of the week + 1
         //Monday
         let firstWorkingWeekDay = this.getFirstWorkingDay(day);
+
 
         let week = [];
 
@@ -103,9 +103,9 @@ class WeeklyCalendar extends Component {
     getCurrentWeekDay(){
         let curentWeekDay;
         if(this.state.currentDay === ""){
-            curentWeekDay = this.state.todaysDay;
+            curentWeekDay = new Date(this.state.todaysDay.getTime());
         }else {
-            curentWeekDay = this.state.currentDay;
+            curentWeekDay = new Date(this.state.currentDay.getTime());
         }
 
         return curentWeekDay;
@@ -124,21 +124,15 @@ class WeeklyCalendar extends Component {
     }
 
     onBooking(dayKey) {
-        //TODO: remove
-        // add class to the item with hidden button for booking and change color of the time
-        // save date, room, time to the localStorage
         if(!localStorage.getItem(dayKey)) {
             localStorage.setItem(dayKey, dayKey);
         }
-
         this.getBookedTime();
-
     }
 
     getBookedTime(){
         let localStorageKeys = [];
         for ( var i = 0;  i < localStorage.length; i++ ) {
-            console.log( localStorage.getItem(localStorage.key(i)));
             localStorageKeys.push(localStorage.getItem(localStorage.key(i)));
         }
 
@@ -147,6 +141,7 @@ class WeeklyCalendar extends Component {
         }else {
             this.setState({bookedTime: null});
         }
+
     }
 
     checkTime(bookingTimeId){
@@ -164,15 +159,12 @@ class WeeklyCalendar extends Component {
     }
 
     render(){
-        localStorage.clear();
-
-
         let weekDay;
 
         if(this.state.currentDay === ""){
-            weekDay = this.state.todaysDay;
+            weekDay = new Date(this.state.todaysDay.getTime());
         }else {
-            weekDay = this.state.currentDay;
+            weekDay = new Date(this.state.currentDay.getTime());
         }
 
         let week = this.weekCalendar(weekDay);
@@ -190,7 +182,7 @@ class WeeklyCalendar extends Component {
         let date;
         let isCorrectDate;
         let date1;
-        let date2;
+        let date2 = new Date(this.state.todaysDay.getTime());
         for(let i = 0; i < ROOMS.length; i++){
             tmp = [];
             for (let j = 0; j < week.length; j++){
@@ -198,14 +190,12 @@ class WeeklyCalendar extends Component {
                 date = week[j].getFullYear().toString().concat(
                     week[j].getMonth().toString()).concat(
                         (week[j].getDate() + i).toString());
-                date1 = week[j];
-                date2 = this.state.todaysDay;
+                date1 = new Date(week[j].getTime());
                 date1.setHours(0,0,0,0);
                 date2.setHours(0,0,0,0);
                 if(date1.getTime() >= date2.getTime()) {
                     isCorrectDate = true;
-                    //TODO: remove
-                    //console.log(week[j].getTime().toString() + " " + this.state.todaysDay.getTime().toString() + " correct");
+
                 }else {
                     isCorrectDate = false;
                 }
@@ -238,7 +228,7 @@ class WeeklyCalendar extends Component {
         }
 
         return (
-            <div>
+            <div className="calendar-container">
                 <Row className="calendar-header">
                     <Cell className="rooms-header">Комната</Cell>
                     <Cell className="month-header">

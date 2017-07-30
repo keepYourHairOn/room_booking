@@ -13,26 +13,15 @@ legend,table,caption,tbody,tfoot,thead,tr,th,td {
 * {
   margin:0;
   padding:0;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;
 }
 
-body{
+html, body, #root, .App {
     height: 100%;
     width: 100%;
     color: #666666;
-}
-
-/* Easy way for me to float items */
-
-.floatleft {
-    float:left;
-}
-
-.floatright {
-    float:right;
-}
-
-.floatmiddle {
-    margin: 0px auto;
 }
 
 .App {
@@ -41,38 +30,47 @@ body{
 
 .App-header {
   text-align: left;
-  height: 117px;
 }
 
 .App-header > div{
     font-weight: bold;
-    font-size: 34px;
-    padding-left: 4.5%;
-    padding-top: 40px;
+    font-size: 2em;
+    padding-left: 6%;
+    padding-top: 3.295%;
+    padding-bottom: 3.14%;
 }
 
 .row {
     width: 100%;
-    height: inherit;
 }
 
 .calendar-header {
     float: left;
-    padding-left: 4.5%;
+    padding-left: 6%;
+    height: 11.30%;
 }
 
 .calendar-header > .cell {
     float: left;
 }
 
+.rooms-header {
+    padding-top: 2%;
+}
+
+.month-name, .rooms-header {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
 .day {
     width: 19%;
     text-align: center;
-    height: 35px;
 }
 
 .day:nth-child(-n+4) {
-    margin-right: 0.77%;
+    margin-right: 1.25%;
+
 }
 
 .month-header .row .week-days .day:nth-last-child(1) {
@@ -81,36 +79,67 @@ body{
 
 .week-days {
     width: 100%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    font-size: 1.06em;
 }
 
 .booking {
-    padding-left: 4.5%;
+    padding-left: 6%;
+}
+
+.roomWeek {
+    height: 100%;
 }
 
 .roomWeek > .cell{
     float: left;
-    width: 100%;
+    width: 90.9%;
+    height: 14.13%;
+    border: 1px solid #ebebeb;
+    margin-bottom: 1%;
 }
 
 .roomWeek > .cell > .cell{
     float: left;
 }
 
+.roomWeek .roomName {
+    font-size: 1.2em;
+    width: 25%;
+    padding-left: 3%;
+    padding-top: 3%;
+}
+
 .bookingWeek {
     float: left;
-    width: 68%;
+    width: 75%;
 }
 
 .bookingWeek .bookingDay{
     float: left;
+    font-size: 1.06em;
 }
 
 .bookingDay .timePeriod {
     float: left;
+    height: 2.3%;
+
+}
+
+.timePeriod button {
+    height: 2.3%;
+    background-color: transparent;
+    border: none;
+}
+
+.timePeriod button:hover {
+    cursor: pointer;
+    cursor: hand;
 }
 
 .bookingWeek .bookingDay:nth-child(-n+4) {
-    margin-right: 0.77%;
+    margin-right: 1.25%;
 }
 
 .bookingWeek .bookingDay:nth-last-child(1) {
@@ -126,27 +155,32 @@ body{
     -webkit-column-gap: 0px;
     -moz-column-gap: 0px;
     column-gap: 0px;
-    border: 1px solid #ebebeb;
+    border-left: 1px solid #ebebeb;
+    border-right: 1px solid #ebebeb;
 }
 
 .bookingDay .timePeriod {
     width: 100%;
 }
 
-.rooms-header, .roomName {
+.rooms-header {
     height: 70px;
     width: 23%;
 }
 
 .month-header {
     width: 68%;
-    height: 35px;
-    background-color: #ebebeb;
 }
+
 
 .month-header .row{
     float: left;
     width: 100%;
+    height: 5.65%
+}
+
+.month-header > .row:first-child {
+    background-color: #ebebeb;
 }
 
 .month-header .row > *{
@@ -160,6 +194,7 @@ body{
 .month-name {
     width: 88%;
     text-align: center;
+    padding-top: 1%;
 }
 
 .month-header .month-name div{
@@ -190,6 +225,15 @@ body{
     max-width: 100%;
     float: right;
 }
+.left-button button, .right-button button {
+    background-color: transparent;
+    border: none;
+}
+
+.left-button button:hover, .right-button button:hover {
+    cursor: pointer;
+    cursor: hand;
+}
 
 .bookingButton {
     width: 40%;
@@ -197,12 +241,14 @@ body{
 }
 
 .bookingButton .plus {
-    height: 100%;
-    width: 100%;
-    font-size: 20px;
+    font-size: 1.4em;
     font-family: Arial;
 }
 
 .bookedTime {
     background: #d6d6d6;
+}
+
+.timePeriod span {
+    margin-left: 7%;
 }
