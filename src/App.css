@@ -280,6 +280,10 @@ html, body, #root, .App {
     .bookingButton {
         width: 25%;
     }
+
+    .bookedTime {
+        padding-top: 5%
+    }
 }
 
 @media screen and (min-width: 980px) {
@@ -317,6 +321,10 @@ html, body, #root, .App {
 
     .bookingButton {
         width: 40%;
+    }
+
+    .bookedTime {
+        padding-top: 2.4%
     }
 }
 
@@ -386,6 +394,11 @@ html, body, #root, .App {
 
     .bookingDay {
         width: 19%;
+    }
+
+    .bookedTime {
+        padding-top: 0%;
+        -webkit-padding-before: 1%
     }
 }
 
