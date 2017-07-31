@@ -258,19 +258,19 @@ class WeeklyCalendar extends Component {
                     // else mark it as booked.
                     if((this.state.bookedTime == null || this.state.bookedTime.indexOf(dayKey) === -1) &&
                         (isValidDate) && expiredTime === -1){
-                        button = <button className="bookingButton" onClick={this.onBooking.bind(this, dayKey)}><span className="plus">+</span></button>;
+                        button = <button className="booking-button" onClick={this.onBooking.bind(this, dayKey)}><span className="plus">+</span></button>;
                     }else {
-                        bookedClass = "bookedTime";
+                        bookedClass = "booked-time";
                     }
 
-                    day.push(<Cell key={dayKey} className={"timePeriod " + bookedClass}>
+                    day.push(<Cell key={dayKey} className={"time-period " + bookedClass}>
                         <span>{TIME_PERIODS[k].time}</span>{button}</Cell>);
                 }
 
-                bookingDays.push(<Cell className="bookingDay">{day}</Cell>);
+                bookingDays.push(<Cell className="booking-day">{day}</Cell>);
             }
 
-            bookingTime[i] = <Cell><Cell className="roomName">{ROOMS[i].name}</Cell><Cell className="bookingWeek">{bookingDays}</Cell></Cell>;
+            bookingTime[i] = <Cell><Cell className="room-name">{ROOMS[i].name}</Cell><Cell className="booking-week">{bookingDays}</Cell></Cell>;
         }
 
         return (
@@ -291,7 +291,7 @@ class WeeklyCalendar extends Component {
                             <Cell className="week-days">
                                 {
                                     week.map(function(day, i){
-                                        return <Cell className="day" key={i}> <span>{day.getDate().toString()}{'\u00A0'}</span> <span className="shortDayName">{SHORT_WEEK_DAYS[i + 1]}</span><span className="fullDayName">{WEEK_DAYS[i + 1]}</span></Cell>
+                                        return <Cell className="day" key={i}> <span>{day.getDate().toString()}{'\u00A0'}</span> <span className="short-day-name">{SHORT_WEEK_DAYS[i + 1]}</span><span className="full-day-name">{WEEK_DAYS[i + 1]}</span></Cell>
                                     })
                                 }
                             </Cell>
@@ -301,7 +301,7 @@ class WeeklyCalendar extends Component {
                 <Row className="booking">
                 {
                     bookingTime.map(function(item, i){
-                        return <Row className="roomWeek" key={i}>{item}</Row>
+                        return <Row className="room-week" key={i}>{item}</Row>
                     })
                 }
                 </Row>

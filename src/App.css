@@ -13,8 +13,8 @@ legend,table,caption,tbody,tfoot,thead,tr,th,td {
 * {
   margin:0;
   padding:0;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -80,54 +80,54 @@ html, body, #root, .App {
     padding-left: 6%;
 }
 
-.roomWeek {
+.room-week {
     height: 100%;
 }
 
-.roomWeek > .cell{
+.room-week > .cell{
     float: left;
     height: 14.13%;
     border: 1px solid #ebebeb;
     margin-bottom: 1%;
 }
 
-.roomWeek > .cell > .cell{
+.room-week > .cell > .cell{
     float: left;
 }
 
-.bookingWeek .bookingDay{
+.booking-week .booking-day{
     float: left;
 }
 
-.bookingDay .timePeriod {
+.booking-day .time-period {
     height: 2.3%;
 }
 
-.timePeriod button {
+.time-period .booking-button {
     height: 2.3%;
     background-color: transparent;
     border: none;
 }
 
-.timePeriod button:hover {
+.time-period .booking-button:hover {
     cursor: pointer;
     cursor: hand;
 }
 
-.bookingWeek .bookingDay:nth-child(-n+4) {
+.booking-week .booking-day:nth-child(-n+4) {
     border-right: 1px solid #ebebeb;
 }
 
-.bookingWeek .bookingDay:nth-last-child(1) {
+.booking-week .booking-day:nth-last-child(1) {
     float: right;
 }
 
-.bookingDay {
+.booking-day {
     height: 100%;
     border-left: 1px solid #ebebeb;
 }
 
-.bookingDay .timePeriod {
+.booking-day .time-period {
     width: 100%;
 }
 
@@ -193,20 +193,20 @@ html, body, #root, .App {
     cursor: hand;
 }
 
-.bookingButton .plus {
+.booking-button .plus {
     font-family: Arial;
 }
 
-.bookedTime {
+.booked-time {
     background: #d6d6d6;
 }
 
 @media screen and (max-width: 359px){
-    .bookingWeek .bookingDay{
+    .booking-week .booking-day{
         font-size: 0.71em;
     }
 
-    .roomWeek .roomName, #month {
+    .room-week .room-name, #month {
         font-size: 0.73em;
     }
 
@@ -222,27 +222,27 @@ html, body, #root, .App {
         font-size: 1em;
     }
 
-    .bookingButton .plus {
+    .booking-button .plus {
         font-size: 0.9em;
     }
 
-    .bookingWeek .bookingDay:nth-child(-n+4) {
+    .booking-week .booking-day:nth-child(-n+4) {
         margin-right: 1%;
     }
 
-    .bookingDay {
+    .booking-day {
         width: 19.2%;
     }
 
-    .bookingButton {
+    .booking-button {
         width: 30%;
     }
 
-    .timePeriod span {
+    .time-period span {
         margin-left: 1%;
     }
 
-    .fullDayName {
+    .full-day-name {
         display: none;
     }
 
@@ -250,7 +250,7 @@ html, body, #root, .App {
         width: 74%;
     }
 
-    .roomWeek > .cell {
+    .room-week > .cell {
         width: 93%;
     }
 
@@ -258,7 +258,7 @@ html, body, #root, .App {
         width: 19%;
     }
 
-    .roomWeek .roomName {
+    .room-week .room-name {
         transform: rotate(90deg);
         padding-left: 12%;
         width: 20%;
@@ -268,17 +268,17 @@ html, body, #root, .App {
         padding-left: 3%;
     }
 
-    .bookingWeek {
+    .booking-week {
         width: 80%;
     }
 }
 
 @media screen and (max-width: 325px){
-    .bookingWeek .bookingDay{
+    .booking-week .booking-day{
         font-size: 0.7em;
     }
 
-    .bookingButton {
+    .booking-button {
         width: 25%;
     }
 
@@ -286,11 +286,11 @@ html, body, #root, .App {
 
 
 @media screen and (min-width: 360px) and (max-width: 767px) {
-    .bookingWeek .bookingDay{
+    .booking-week .booking-day{
         font-size: 0.71em;
     }
 
-    .roomWeek .roomName, #month {
+    .room-week .room-name, #month {
         font-size: 0.86em;
     }
 
@@ -306,27 +306,27 @@ html, body, #root, .App {
         font-size: 1.1em;
     }
 
-    .bookingButton .plus {
+    .booking-button .plus {
         font-size: 0.9em;
     }
 
-    .bookingWeek .bookingDay:nth-child(-n+4) {
+    .booking-week .booking-day:nth-child(-n+4) {
         margin-right: 1%;
     }
 
-    .bookingDay {
+    .booking-day {
         width: 19.2%;
     }
 
-    .bookingButton {
+    .booking-button {
         width: 30%;
     }
 
-    .timePeriod span {
+    .time-period span {
         margin-left: 1%;
     }
 
-    .fullDayName {
+    .full-day-name {
         display: none;
     }
 
@@ -334,7 +334,7 @@ html, body, #root, .App {
         width: 74%;
     }
 
-    .roomWeek > .cell {
+    .room-week > .cell {
         width: 93%;
     }
 
@@ -342,7 +342,7 @@ html, body, #root, .App {
         width: 19%;
     }
 
-    .roomWeek .roomName {
+    .room-week .room-name {
         -ms-transform: rotate(90deg);
         -moz-transform: rotate(90deg);
         -webkit-transform: rotate(90deg);
@@ -355,31 +355,31 @@ html, body, #root, .App {
         padding-left: 3%;
     }
 
-    .bookingWeek {
+    .booking-week {
         width: 80%;
     }
 }
 
 @media screen and (max-width: 449px){
-    .bookedTime {
+    .booked-time {
         padding-top: 5%
     }
 }
 
 @media screen and (min-width: 450px) and (max-width: 539px){
-    .bookedTime {
+    .booked-time {
         padding-top: 4%
     }
 }
 
 @media screen and (min-width: 540px) and (max-width: 767px){
-    .bookedTime {
+    .booked-time {
         padding-top: 3.5%
     }
 }
 
 @media  screen and (min-width: 500px) and (max-width: 599px){
-    .bookingWeek .bookingDay{
+    .booking-week .booking-day{
         font-size: 0.72em;
     }
 
@@ -387,17 +387,17 @@ html, body, #root, .App {
         font-size: 0.72em;
     }
 
-    .bookingButton .plus {
+    .booking-button .plus {
         font-size: 1em;
     }
 
-    .bookingButton {
+    .booking-button {
         width: 45%;
     }
 }
 
 @media  screen and (min-width: 600px) and (max-width: 767px){
-    .bookingWeek .bookingDay{
+    .booking-week .booking-day{
         font-size: 0.73em;
     }
 
@@ -413,15 +413,15 @@ html, body, #root, .App {
         padding-left: 3%;
     }
 
-    .bookingButton .plus {
+    .booking-button .plus {
         font-size: 1em;
     }
 
-    .bookingButton {
+    .booking-button {
         width: 45%;
     }
 
-    .roomWeek .roomName {
+    .room-week .room-name {
         -ms-transform: rotate(0deg);
         -moz-transform: rotate(0deg);
         -webkit-transform: rotate(0deg);
@@ -431,17 +431,17 @@ html, body, #root, .App {
         padding-top: 3%;
     }
 
-    .timePeriod {
+    .time-period {
         padding-left: 5%;
     }
 }
 
 @media screen and (min-width: 768px) {
-    .bookingWeek .bookingDay{
+    .booking-week .booking-day{
         font-size: 0.71em;
     }
 
-    .roomWeek .roomName, #month {
+    .room-week .room-name, #month {
         font-size: 0.96em;
     }
 
@@ -457,39 +457,39 @@ html, body, #root, .App {
         font-size: 1.5em;
     }
 
-    .bookingButton .plus {
+    .booking-button .plus {
         font-size: 0.96em;
     }
 
-    .bookingWeek .bookingDay:nth-child(-n+4) {
+    .booking-week .booking-day:nth-child(-n+4) {
         margin-right: 1%;
     }
 
-    .bookingDay {
+    .booking-day {
         width: 19.2%;
     }
 
-    .bookingButton {
+    .booking-button {
         width: 25%;
     }
 
-    .bookedTime {
+    .booked-time {
         padding-top: 5%
     }
 
-    .timePeriod span {
+    .time-period span {
         margin-left: 7%;
     }
 
-    .shortDayName {
+    .short-day-name {
         display: none;
     }
 
-    .bookingDay .timePeriod {
+    .booking-day .time-period {
         float: left;
     }
 
-    .bookingDay {
+    .booking-day {
         column-count: 2;
         -moz-column-count: 2;
         -webkit-column-count: 2;
@@ -499,11 +499,11 @@ html, body, #root, .App {
         border-left: 1px solid #ebebeb;
     }
 
-    .bookingButton {
+    .booking-button {
         float: right;
     }
 
-    .roomWeek > .cell {
+    .room-week > .cell {
         width: 90.9%;
     }
 
@@ -515,7 +515,7 @@ html, body, #root, .App {
         width: 23%;
     }
 
-    .roomWeek .roomName {
+    .room-week .room-name {
         padding-left: 3%;
         padding-top: 3%;
         width: 25%;
@@ -525,17 +525,17 @@ html, body, #root, .App {
         margin-right: 1.25%;
     }
 
-    .bookingWeek {
+    .booking-week {
         width: 75%;
     }
 }
 
 @media screen and (min-width: 980px) {
-    .bookingWeek .bookingDay{
+    .booking-week .booking-day{
         font-size: 0.78em;
     }
 
-    .roomWeek .roomName, #month {
+    .room-week .room-name, #month {
         font-size: 1em;
     }
 
@@ -551,96 +551,64 @@ html, body, #root, .App {
         font-size: 1.8em;
     }
 
-    .bookingButton .plus {
+    .booking-button .plus {
         font-size: 1em;
     }
 
-    .bookingWeek .bookingDay:nth-child(-n+4) {
+    .booking-week .booking-day:nth-child(-n+4) {
         margin-right: 1%;
     }
 
-    .bookingDay {
+    .booking-day {
         width: 19.2%;
     }
 
-    .bookingButton {
+    .booking-button {
         width: 40%;
     }
 
-    .bookedTime {
+    .booked-time {
         padding-top: 2.4%
     }
 }
 
 @media screen and (min-width: 1130px) {
-    .bookingWeek .bookingDay{
+    .booking-week .booking-day{
         font-size: 0.86em;
     }
 
-    .roomWeek .roomName, #month {
-        font-size: 1em;
-    }
-
-    .week-days {
-        font-size: 0.86em;
-    }
-
-    .month-name, .rooms-header {
-        font-size: 1em;
-    }
-
-    .App-header > div{
-        font-size: 1.8em;
-    }
-
-    .bookingButton .plus {
+    .booking-button .plus {
         font-size: 1.2em;
     }
 
-    .bookingWeek .bookingDay:nth-child(-n+4) {
+    .booking-week .booking-day:nth-child(-n+4) {
         margin-right: 1.1%;
     }
 
-    .bookingDay {
+    .booking-day {
         width: 19.1%;
     }
 }
 
 @media screen and (min-width: 1280px) {
 
-    .bookingWeek .bookingDay{
+    .booking-week .booking-day{
         font-size: 0.96em;
-    }
-
-    .roomWeek .roomName, #month {
-        font-size: 1em;
     }
 
     .week-days {
         font-size: 0.96em;
     }
 
-    .month-name, .rooms-header {
-        font-size: 1em;
-    }
-
-    .App-header > div{
-        font-size: 1.8em;
-    }
-
-    .bookingButton .plus {
-        font-size: 1.2em;
-    }
-
-    .bookingWeek .bookingDay:nth-child(-n+4) {
+    .booking-week .booking-day:nth-child(-n+4) {
         margin-right: 1.25%;
     }
 
-    .bookingDay {
+    .booking-day {
         width: 19%;
     }
 
-    .bookedTime {
+    .booked-time {
         padding-top: 0%;
         -webkit-padding-before: 1%
     }
@@ -648,11 +616,11 @@ html, body, #root, .App {
 
 @media screen and (min-width: 1335px) {
 
-    .bookingWeek .bookingDay{
+    .booking-week .booking-day{
         font-size: 1.06em;
     }
 
-    .roomWeek .roomName, #month {
+    .room-week .room-name, #month {
         font-size: 1.2em;
     }
 
@@ -668,7 +636,7 @@ html, body, #root, .App {
         font-size: 2em;
     }
 
-    .bookingButton .plus {
+    .booking-button .plus {
         font-size: 1.4em;
     }
 }
