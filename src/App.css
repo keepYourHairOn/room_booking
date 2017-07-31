@@ -135,7 +135,6 @@ html, body, #root, .App {
     height: 11.3%;
 }
 
-
 .month-header .row{
     float: left;
     width: 100%;
@@ -281,7 +280,6 @@ html, body, #root, .App {
     .booking-button {
         width: 25%;
     }
-
 }
 
 
