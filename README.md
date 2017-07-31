@@ -5,8 +5,7 @@ A test task for creating a meeting room booking system.
 ## Installation
 
 1. Download project.
-2. Intstall dependencies.
-Install dependencies.
+2. Intstall dependencies to the root directory.
 ```
 npm install
 ```
