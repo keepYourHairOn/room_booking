@@ -273,6 +273,17 @@ html, body, #root, .App {
     }
 }
 
+@media screen and (max-width: 325px){
+    .bookingWeek .bookingDay{
+        font-size: 0.7em;
+    }
+
+    .bookingButton {
+        width: 25%;
+    }
+
+}
+
 
 @media screen and (min-width: 360px) and (max-width: 767px) {
     .bookingWeek .bookingDay{
@@ -332,6 +343,9 @@ html, body, #root, .App {
     }
 
     .roomWeek .roomName {
+        -ms-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
         transform: rotate(90deg);
         padding-left: 12%;
         width: 20%;
@@ -408,6 +422,9 @@ html, body, #root, .App {
     }
 
     .roomWeek .roomName {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
         padding-left: 0%;
         padding-left: 3%;

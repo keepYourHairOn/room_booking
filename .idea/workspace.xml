@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87d7c0c5-e7b6-4318-9309-ab3b7dfa537e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.css" afterPath="$PROJECT_DIR$/src/App.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/WeeklyCalendar.js" afterPath="$PROJECT_DIR$/src/components/WeeklyCalendar.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -35,8 +33,8 @@
       <file leaf-file-name="App.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="322" column="17" lean-forward="false" selection-start-line="322" selection-start-column="17" selection-end-line="322" selection-end-column="17" />
+            <state relative-caret-position="204">
+              <caret line="278" column="5" lean-forward="false" selection-start-line="278" selection-start-column="5" selection-end-line="278" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -66,7 +64,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>.month-header</find>
       <find>.day</find>
       <find>.week-days</find>
       <find>4.5</find>
@@ -96,6 +93,7 @@
       <find>.rooms-header</find>
       <find>.bookingWeek</find>
       <find>73%</find>
+      <find>rotate</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -303,15 +301,15 @@
       <option name="presentableId" value="Default" />
       <updated>1500964955077</updated>
       <workItem from="1500964956722" duration="43040000" />
-      <workItem from="1501145008504" duration="45901000" />
+      <workItem from="1501145008504" duration="47160000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88941000" />
+    <option name="totallyTimeSpent" value="90200000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30580357" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -449,8 +447,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="322" column="17" lean-forward="false" selection-start-line="322" selection-start-column="17" selection-end-line="322" selection-end-column="17" />
+        <state relative-caret-position="204">
+          <caret line="278" column="5" lean-forward="false" selection-start-line="278" selection-start-column="5" selection-end-line="278" selection-end-column="5" />
           <folding />
         </state>
       </provider>
