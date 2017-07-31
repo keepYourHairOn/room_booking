@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87d7c0c5-e7b6-4318-9309-ab3b7dfa537e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.css" afterPath="$PROJECT_DIR$/src/App.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/WeeklyCalendar.js" afterPath="$PROJECT_DIR$/src/components/WeeklyCalendar.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,8 +35,8 @@
       <file leaf-file-name="App.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="400" column="34" lean-forward="true" selection-start-line="400" selection-start-column="34" selection-end-line="400" selection-end-column="34" />
+            <state relative-caret-position="330">
+              <caret line="322" column="17" lean-forward="false" selection-start-line="322" selection-start-column="17" selection-end-line="322" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -43,8 +45,8 @@
       <file leaf-file-name="WeeklyCalendar.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/WeeklyCalendar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="196" column="41" lean-forward="false" selection-start-line="196" selection-start-column="41" selection-end-line="196" selection-end-column="41" />
+            <state relative-caret-position="986">
+              <caret line="250" column="120" lean-forward="false" selection-start-line="250" selection-start-column="120" selection-end-line="250" selection-end-column="120" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#56#97#0" expanded="true" />
@@ -64,15 +66,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>today</find>
-      <find>first_day</find>
-      <find>padding-left</find>
-      <find>bookingWeek</find>
-      <find>currentDay</find>
-      <find>bookedTime</find>
-      <find>checkTime</find>
-      <find>todaysDay</find>
-      <find>setState</find>
       <find>.month-header</find>
       <find>.day</find>
       <find>.week-days</find>
@@ -84,11 +77,25 @@
       <find>bookingDay</find>
       <find>roomWee</find>
       <find>button</find>
-      <find>orrect</find>
       <find>font-size</find>
       <find>day</find>
       <find>40%</find>
       <find>web</find>
+      <find>nth-c</find>
+      <find>float</find>
+      <find>nth</find>
+      <find>nth-</find>
+      <find>rooms-header</find>
+      <find>height</find>
+      <find>nth-child(-n+4)</find>
+      <find>timePeriod</find>
+      <find>orrect</find>
+      <find>bookingButton</find>
+      <find>month-header</find>
+      <find>.roomWeek .roomName</find>
+      <find>.rooms-header</find>
+      <find>.bookingWeek</find>
+      <find>73%</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -296,12 +303,12 @@
       <option name="presentableId" value="Default" />
       <updated>1500964955077</updated>
       <workItem from="1500964956722" duration="43040000" />
-      <workItem from="1501145008504" duration="35802000" />
+      <workItem from="1501145008504" duration="45901000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78842000" />
+    <option name="totallyTimeSpent" value="88941000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -410,8 +417,8 @@
         <state relative-caret-position="153">
           <caret line="9" column="29" lean-forward="false" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#56#97#0" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="e#56#97#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -431,8 +438,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/WeeklyCalendar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="196" column="41" lean-forward="false" selection-start-line="196" selection-start-column="41" selection-end-line="196" selection-end-column="41" />
+        <state relative-caret-position="986">
+          <caret line="250" column="120" lean-forward="false" selection-start-line="250" selection-start-column="120" selection-end-line="250" selection-end-column="120" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#56#97#0" expanded="true" />
@@ -442,8 +449,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="400" column="34" lean-forward="true" selection-start-line="400" selection-start-column="34" selection-end-line="400" selection-end-column="34" />
+        <state relative-caret-position="330">
+          <caret line="322" column="17" lean-forward="false" selection-start-line="322" selection-start-column="17" selection-end-line="322" selection-end-column="17" />
           <folding />
         </state>
       </provider>

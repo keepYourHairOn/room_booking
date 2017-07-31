@@ -10,6 +10,7 @@ import '../App.css';
 const MONTH = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август",
     "Сентябрь", "Октябрь","Ноябрь", "Декабрь"];
 const WEEK_DAYS = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];
+const SHORT_WEEK_DAYS = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
 
 const ROOMS = [
     {name: "Желтая", id:  0},
@@ -159,6 +160,8 @@ class WeeklyCalendar extends Component {
     }
 
     render(){
+        //TODO:check for window.innerWidth
+        //make days ПН ВТ и тд, время в один столбец
         let weekDay;
 
         if(this.state.currentDay === ""){
@@ -245,7 +248,7 @@ class WeeklyCalendar extends Component {
                             <Cell className="week-days">
                                 {
                                     week.map(function(day, i){
-                                        return <Cell className="day" key={i}> {day.getDate().toString()} {WEEK_DAYS[i + 1]}</Cell>
+                                        return <Cell className="day" key={i}> <span>{day.getDate().toString()}{'\u00A0'}</span> <span className="shortDayName">{SHORT_WEEK_DAYS[i + 1]}</span><span className="fullDayName">{WEEK_DAYS[i + 1]}</span></Cell>
                                     })
                                 }
                             </Cell>
