@@ -7,11 +7,13 @@ import arrow_right from "../arrow_right.png";
 import plus_sign_icon from "../plus_sign_icon.png";
 import '../App.css';
 
+/*
+ * Constant values for unchanged data.
+ */
 const MONTH = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август",
     "Сентябрь", "Октябрь","Ноябрь", "Декабрь"];
 const WEEK_DAYS = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];
 const SHORT_WEEK_DAYS = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
-
 const ROOMS = [
     {name: "Желтая", id:  0},
     {name: "Красная", id:  1},
@@ -19,7 +21,6 @@ const ROOMS = [
     {name: "Синяя", id:  3},
     {name: "Фиолетовая", id:  4},
 ];
-
 const TIME_PERIODS = [
     {time: "09:00", id:  0},
     {time: "10:00", id:  1},
@@ -33,35 +34,40 @@ const TIME_PERIODS = [
     {time: "18:00", id:  9},
 ];
 
+/*
+ * A custom class for calendar.
+ */
 class WeeklyCalendar extends Component {
+    /*
+     * Initial settings for the state of the class.
+     */
     constructor(){
         super();
-
         this.state = {todaysDay: new Date(),
                         currentDay: "",
                         bookedTime: this.getBookedTime()};
     }
 
+    /*
+     * Get booked time before rendering of the component.
+     */
     componentWillMount(){
         this.getBookedTime();
     }
 
+    /*
+     * Calculate all working days of the week, dayToCount belongs to.
+     */
     weekCalendar(dayToCount) {
         let day = new Date(dayToCount.getTime());
-        let year = day.getFullYear();
-        let month = day.getMonth();
-        // will be needed for the blocking of booking ability
-        let last_day = new Date(year, month + 1, 0);
 
-        // day of the month - day of the week + 1
-        //Monday
+        //Get Monday.
         let firstWorkingWeekDay = this.getFirstWorkingDay(day);
 
-
         let week = [];
+        let weekDay;
 
         for(let i = 0; i < 5; i++){
-            let weekDay;
 
             if(i === 0){
                 weekDay = firstWorkingWeekDay;
@@ -76,6 +82,9 @@ class WeeklyCalendar extends Component {
         return week;
     }
 
+    /*
+     * Calculate date of the Monday of the week, day belongs to.
+     */
     getFirstWorkingDay(day){
         let dayToCount = day;
         let currentDay = dayToCount.getDate();
@@ -83,6 +92,9 @@ class WeeklyCalendar extends Component {
         return new Date(dayToCount.setDate(currentDay - currentWeekDay + 1));
     }
 
+    /*
+     * Calculate days of the week prior for the current one.
+     */
     getPreviousWeek(){
         let curentWeekDay = this.getCurrentWeekDay();
 
@@ -92,6 +104,9 @@ class WeeklyCalendar extends Component {
         this.setState({currentDay: curentWeekDay});
     }
 
+    /*
+     * Calculate days of the week subsequent for the current one.
+     */
     getNextWeek(){
         let curentWeekDay = this.getCurrentWeekDay();
 
@@ -101,6 +116,9 @@ class WeeklyCalendar extends Component {
         this.setState({currentDay: curentWeekDay});
     }
 
+    /*
+     * Get day of the week from the current date.
+     */
     getCurrentWeekDay(){
         let curentWeekDay;
         if(this.state.currentDay === ""){
@@ -112,6 +130,9 @@ class WeeklyCalendar extends Component {
         return curentWeekDay;
     }
 
+    /*
+     * Calculates index of the month adjacent to the current one.
+     */
     getAdjacentMonths(firstWeekDay, lastWeekDay){
         let months = [];
         months[0] = firstWeekDay.getMonth();
@@ -124,6 +145,10 @@ class WeeklyCalendar extends Component {
         return months;
     }
 
+    /*
+     * Booking button handler.
+     * Saves booked time to the localStorage.
+     */
     onBooking(dayKey) {
         if(!localStorage.getItem(dayKey)) {
             localStorage.setItem(dayKey, dayKey);
@@ -131,6 +156,9 @@ class WeeklyCalendar extends Component {
         this.getBookedTime();
     }
 
+    /*
+     * Assigns booked time periods to the state of the component.
+     */
     getBookedTime(){
         let localStorageKeys = [];
         for ( var i = 0;  i < localStorage.length; i++ ) {
@@ -145,6 +173,9 @@ class WeeklyCalendar extends Component {
 
     }
 
+    /*
+     * Blocks booking time if it is less or equal to the current time.
+     */
     checkTime(bookingTimeId){
         let date = new Date();
         let hours = date.getHours();
@@ -160,8 +191,7 @@ class WeeklyCalendar extends Component {
     }
 
     render(){
-        //TODO:check for window.innerWidth
-        //make days ПН ВТ и тд, время в один столбец
+
         let weekDay;
 
         if(this.state.currentDay === ""){
@@ -172,7 +202,9 @@ class WeeklyCalendar extends Component {
 
         let week = this.weekCalendar(weekDay);
         let adjacentMonth = this.getAdjacentMonths(week[0], week[4]);
+
         let month;
+
         if(adjacentMonth.length === 2){
             month = <div id='month'>{MONTH[week[0].getMonth()]} / {MONTH[week[4].getMonth()]}</div>;
         }else {
@@ -180,28 +212,34 @@ class WeeklyCalendar extends Component {
         }
 
         let bookingTime = [];
-        let tmp;
+        let bookingDays;
         let day;
         let date;
-        let isCorrectDate;
+        let isValidDate;
         let date1;
         let date2 = new Date(this.state.todaysDay.getTime());
+
+        //Fills in booking time for each rooms for all five working days of the week.
         for(let i = 0; i < ROOMS.length; i++){
-            tmp = [];
+            bookingDays = [];
             for (let j = 0; j < week.length; j++){
                 day = [];
                 date = week[j].getFullYear().toString().concat(
                     week[j].getMonth().toString()).concat(
                         (week[j].getDate() + i).toString());
+
                 date1 = new Date(week[j].getTime());
                 date1.setHours(0,0,0,0);
                 date2.setHours(0,0,0,0);
+
+                // Check whether the date has not expired.
                 if(date1.getTime() >= date2.getTime()) {
-                    isCorrectDate = true;
+                    isValidDate = true;
 
                 }else {
-                    isCorrectDate = false;
+                    isValidDate = false;
                 }
+
                 for(let k = 0; k < TIME_PERIODS.length; k++){
 
                     let dayKey = ROOMS[i].id.toString().concat(date.toString().concat(k));
@@ -210,24 +248,29 @@ class WeeklyCalendar extends Component {
 
                     let expiredTime = -1;
 
+                    // Check whether time is expired.
                     if(date1.getTime() === date2.getTime()){
                         expiredTime = this.checkTime(k);
                     }
 
+                    // If time belongs to the valid date, not expired, and is not booked
+                    // then makes it available for booking.
+                    // else mark it as booked.
                     if((this.state.bookedTime == null || this.state.bookedTime.indexOf(dayKey) === -1) &&
-                        (isCorrectDate) && expiredTime === -1){
+                        (isValidDate) && expiredTime === -1){
                         button = <button className="bookingButton" onClick={this.onBooking.bind(this, dayKey)}><span className="plus">+</span></button>;
                     }else {
                         bookedClass = "bookedTime";
                     }
+
                     day.push(<Cell key={dayKey} className={"timePeriod " + bookedClass}>
-                        <span>{TIME_PERIODS[k].time}</span>
-                        {button}
-                    </Cell>);
+                        <span>{TIME_PERIODS[k].time}</span>{button}</Cell>);
                 }
-                tmp.push(<Cell className="bookingDay">{day}</Cell>);
+
+                bookingDays.push(<Cell className="bookingDay">{day}</Cell>);
             }
-            bookingTime[i] = <Cell><Cell className="roomName">{ROOMS[i].name}</Cell><Cell className="bookingWeek">{tmp}</Cell></Cell>;
+
+            bookingTime[i] = <Cell><Cell className="roomName">{ROOMS[i].name}</Cell><Cell className="bookingWeek">{bookingDays}</Cell></Cell>;
         }
 
         return (
@@ -268,12 +311,18 @@ class WeeklyCalendar extends Component {
     }
 }
 
+/*
+ * A custom element for emulating rows in the table.
+ */
 const Row = (props) => (
     <div {...props}
          className={['row', props.className].join(' ')}
     />
 );
 
+/*
+ * A custom element for emulating cells in the row.
+ */
 const Cell = (props) => (
     <div {...props}
          className={['cell', props.className].join(' ')}
